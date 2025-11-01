@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cdmuymyac5p07"]
+[gd_scene load_steps=30 format=3 uid="uid://cdmuymyac5p07"]
 
 [ext_resource type="Texture2D" uid="uid://ensxa33f2kxk" path="res://assets/textures/character/Necromancer_creativekind-Sheet.png" id="1_3rotv"]
 [ext_resource type="Script" uid="uid://dleelgvum42ca" path="res://main/character/hero.gd" id="1_mi437"]
@@ -165,6 +165,13 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_lhspf"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pvgjq"]
+gradient = SubResource("Gradient_lhspf")
+fill = 1
+fill_from = Vector2(0.40367, 0.600917)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mi437"]
 height = 36.0
 
@@ -174,12 +181,10 @@ script = ExtResource("1_mi437")
 projectile_scene = ExtResource("2_nsxfi")
 
 [node name="Node2D" type="Node2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
 texture_filter = 3
 position = Vector2(-1, -23)
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_hy8sp")
 animation = &"attack"
 frame = 10
@@ -188,7 +193,6 @@ metadata/_edit_lock_ = true
 
 [node name="Marker2D" type="Marker2D" parent="Node2D"]
 position = Vector2(16.2933, -39.1039)
-scale = Vector2(1, 1)
 metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/Marker2D"]
@@ -197,6 +201,12 @@ scale = Vector2(0.442719, 0.436354)
 color = Color(0.968627, 0.827451, 0.00784314, 1)
 energy = 16.0
 texture = ExtResource("4_lhspf")
+
+[node name="Aura" type="PointLight2D" parent="Node2D"]
+scale = Vector2(1, 1)
+color = Color(0.972549, 0.160784, 0, 1)
+energy = 2.68
+texture = SubResource("GradientTexture2D_pvgjq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_mi437")

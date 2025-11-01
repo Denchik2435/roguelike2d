@@ -4,14 +4,21 @@ extends Area2D
 var direction: Vector2 = Vector2.ZERO
 var dead := false
 
+func _ready():
+	add_to_group("player_bullets")
+
 func _physics_process(delta):
 	if dead:
 		return
 	$AnimatedSprite2D.play("idle")
+	$FireWay.play("fire")
 	position += direction * speed * delta
 
 func _on_area_entered(area):
-	# отложим вызов функции _die, чтобы не лезть в физику во время расчётов
+	if area.has_method("take_damage"):
+		area.take_damage(1)  
+	$FireWay.stop()
+
 	call_deferred("_die")
 
 func _die():
