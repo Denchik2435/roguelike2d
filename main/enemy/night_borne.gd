@@ -2,17 +2,18 @@ extends CharacterBody2D
 
 @export var speed = 50
 @export var player: NodePath
+@export var can_see_player: bool = false
 var health = 3
-var k = 0.25
+var k = 0.5
 
 var target: Node2D
-var can_see_player: bool = false
-
 enum State { IDLE, CHASE, DAMAGE, DIE }
 var current_state: State = State.IDLE
 
 func _ready():
 	target = get_node(player)
+	if can_see_player:
+		current_state = State.CHASE
 
 func _physics_process(delta):
 	if not target:
@@ -23,16 +24,12 @@ func _physics_process(delta):
 		State.IDLE:
 			_idle_state()
 		State.CHASE:
-			if can_see_player:
-				_chase_state(delta)
-			else:
-				current_state = State.IDLE
+			_chase_state(delta)
 		State.DAMAGE:
-			# під час урону не рухаємось
 			velocity = Vector2.ZERO
 			move_and_slide()
 		State.DIE:
-			pass  # усе обробляється у die()
+			pass 
 
 func _idle_state():
 	velocity = Vector2.ZERO
@@ -64,7 +61,10 @@ func take_damage(amount: int):
 	if health <= 0:
 		die()
 	else:
-		current_state = State.IDLE
+		if can_see_player:
+			current_state = State.CHASE
+		else:
+			current_state = State.IDLE
 
 func _flash_light():
 	var light = $HitBox/PointLight2D
@@ -76,6 +76,8 @@ func _flash_light():
 
 func die():
 	current_state = State.DIE
+	$HitBox/CollisionShape2D.set_deferred("disabled", true)
+	$CollisionShape2D.set_deferred("disabled", true)
 	$Node2D/AnimatedSprite2D.play("die")
 	await $Node2D/AnimatedSprite2D.animation_finished
 	queue_free()

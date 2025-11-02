@@ -21,5 +21,15 @@ rotation = 3.14159
 scale = Vector2(-2.765, -2.765)
 player = NodePath("../CharacterBody2D")
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(84, 112)
+[node name="NightBorne3" parent="." instance=ExtResource("2_pjrb6")]
+position = Vector2(55, 215)
+scale = Vector2(2.765, 2.765)
+player = NodePath("../CharacterBody2D")
+
+[node name="NightBorne2" parent="." instance=ExtResource("2_pjrb6")]
+position = Vector2(57, 132)
+rotation = 3.14159
+scale = Vector2(-2.765, -2.765)
+speed = 100
+player = NodePath("../CharacterBody2D")
+can_see_player = true

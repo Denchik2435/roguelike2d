@@ -305,7 +305,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -328,7 +328,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 8.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sks72"]
@@ -356,6 +356,7 @@ texture_filter = 3
 position = Vector2(-3, -9)
 sprite_frames = SubResource("SpriteFrames_o4xky")
 animation = &"idle"
+frame_progress = 0.639828
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
