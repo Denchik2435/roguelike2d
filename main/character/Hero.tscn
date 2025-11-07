@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cdmuymyac5p07"]
+[gd_scene load_steps=44 format=3 uid="uid://cdmuymyac5p07"]
 
 [ext_resource type="Texture2D" uid="uid://ensxa33f2kxk" path="res://assets/textures/character/Necromancer_creativekind-Sheet.png" id="1_3rotv"]
 [ext_resource type="Script" uid="uid://dleelgvum42ca" path="res://main/character/hero.gd" id="1_mi437"]
@@ -56,6 +56,62 @@ region = Rect2(1760, 256, 160, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gn50d"]
 atlas = ExtResource("1_3rotv")
 region = Rect2(1920, 256, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqpjc"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(0, 640, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnrkb"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(160, 640, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d885"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(320, 640, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtm8x"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(480, 640, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ve0s"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(640, 640, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daiun"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(0, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avqbr"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(160, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8w1g"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(320, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qads3"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(480, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybn82"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(640, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vua4"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(800, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fx1r"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(960, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5mck"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(1120, 768, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_202xm"]
+atlas = ExtResource("1_3rotv")
+region = Rect2(1280, 768, 160, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsxfi"]
 atlas = ExtResource("1_3rotv")
@@ -137,6 +193,58 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mqpjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnrkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d885")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtm8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ve0s")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daiun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avqbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8w1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qads3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybn82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vua4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fx1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5mck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_202xm")
+}],
+"loop": false,
+"name": &"die",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nsxfi")
 }, {
 "duration": 1.0,
@@ -162,7 +270,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 7.0
+"speed": 8.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_lhspf"]
@@ -186,9 +294,9 @@ projectile_scene = ExtResource("2_nsxfi")
 texture_filter = 3
 position = Vector2(-1, -23)
 sprite_frames = SubResource("SpriteFrames_hy8sp")
-animation = &"attack"
-frame = 10
-frame_progress = 0.52795
+animation = &"die"
+frame = 5
+frame_progress = 0.179048
 metadata/_edit_lock_ = true
 
 [node name="Marker2D" type="Marker2D" parent="Node2D"]

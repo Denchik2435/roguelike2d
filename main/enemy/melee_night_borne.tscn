@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl31qyxou0pda"]
+
+[ext_resource type="PackedScene" uid="uid://bg4unuv6ard4n" path="res://main/enemy/NightBorne.tscn" id="1_yme5m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yme5m"]
+radius = 19.0
+
+[node name="MeleeNightBorne" instance=ExtResource("1_yme5m")]
+
+[node name="AttackBox" type="Area2D" parent="." index="3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox" index="0"]
+shape = SubResource("CircleShape2D_yme5m")

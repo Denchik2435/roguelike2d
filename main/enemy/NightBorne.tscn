@@ -1,11 +1,47 @@
-[gd_scene load_steps=50 format=3 uid="uid://bg4unuv6ard4n"]
+[gd_scene load_steps=60 format=3 uid="uid://bg4unuv6ard4n"]
 
 [ext_resource type="Script" uid="uid://ca6f5rjn8rni3" path="res://main/enemy/night_borne.gd" id="1_vb76u"]
 [ext_resource type="Texture2D" uid="uid://c2p8wc6tlarge" path="res://assets/textures/enemy/NightBorne.png" id="2_3i00s"]
 [ext_resource type="Texture2D" uid="uid://dup14kanjh1fi" path="res://assets/textures/effects/light_damage.png" id="2_sks72"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vb76u"]
-radius = 8.0
+radius = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t51sb"]
+atlas = ExtResource("2_3i00s")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua2ab"]
+atlas = ExtResource("2_3i00s")
+region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8211d"]
+atlas = ExtResource("2_3i00s")
+region = Rect2(320, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h31p"]
+atlas = ExtResource("2_3i00s")
+region = Rect2(400, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqas8"]
+atlas = ExtResource("2_3i00s")
+region = Rect2(560, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rdxt"]
+atlas = ExtResource("2_3i00s")
+region = Rect2(640, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xl1e"]
+atlas = ExtResource("2_3i00s")
+region = Rect2(720, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqe8p"]
+atlas = ExtResource("2_3i00s")
+region = Rect2(800, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p66r6"]
+atlas = ExtResource("2_3i00s")
+region = Rect2(880, 160, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vb76u"]
 atlas = ExtResource("2_3i00s")
@@ -183,6 +219,38 @@ region = Rect2(400, 80, 80, 80)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_t51sb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua2ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8211d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h31p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqas8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rdxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xl1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqe8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p66r6")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vb76u")
 }, {
 "duration": 1.0,
@@ -334,6 +402,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_sks72"]
 radius = 13.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3i00s"]
+radius = 22.0
+
 [node name="NightBorne" type="CharacterBody2D"]
 script = ExtResource("1_vb76u")
 
@@ -355,12 +426,20 @@ metadata/_edit_lock_ = true
 texture_filter = 3
 position = Vector2(-3, -9)
 sprite_frames = SubResource("SpriteFrames_o4xky")
-animation = &"idle"
-frame_progress = 0.639828
+animation = &"attack"
+frame = 2
+frame_progress = 0.347655
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sks72")
 metadata/_edit_lock_ = true
 
+[node name="AttackBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
+shape = SubResource("CircleShape2D_3i00s")
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="AttackBox" to="." method="_on_attack_box_area_entered"]
+[connection signal="area_exited" from="AttackBox" to="." method="_on_attack_box_area_exited"]

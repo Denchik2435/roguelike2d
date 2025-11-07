@@ -5,11 +5,13 @@ var speed = Global.speed
 @export var projectile_scene: PackedScene
 var attack_frame_to_shoot = 8
 
-enum State { MOVE, ATTACK, DEAD }
-var animation = ["idle", "attack"]
+enum State { MOVE, ATTACK, DIE, DAMAGE }
+var animation = ["idle", "attack", "die", "damage"]
 var current_state: State = State.MOVE
 var current_animation: String
 
+func _ready() -> void:
+	add_to_group("player")
 
 func _change_state(_state: State) -> void:
 	if current_state != _state:
@@ -24,7 +26,7 @@ func _stop_anim() -> void:
 	$Node2D/AnimatedSprite2D.stop()
 
 func _physics_process(delta: float) -> void:
-	if current_state == State.DEAD:
+	if current_state == State.DIE:
 		return
 
 	var input_dir = Vector2.ZERO
@@ -86,3 +88,12 @@ func shoot_flash():
 	$Node2D/Marker2D/PointLight2D.visible = true
 	await get_tree().create_timer(0.1).timeout
 	$Node2D/Marker2D/PointLight2D.visible = false
+
+func take_damage_mob(amount):
+	if current_state == State.DIE:
+		return
+
+	current_state = State.DAMAGE
+	Global.hp -= amount
+	print("My HP:", Global.hp)
+	
