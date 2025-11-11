@@ -1,34 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://kx61lnw0d33w"]
+[gd_scene load_steps=5 format=3 uid="uid://kx61lnw0d33w"]
 
 [ext_resource type="PackedScene" uid="uid://cdmuymyac5p07" path="res://main/character/Hero.tscn" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://dxbevt210tana" path="res://main/main.gd" id="1_xwkvk"]
-[ext_resource type="PackedScene" uid="uid://bg4unuv6ard4n" path="res://main/enemy/NightBorne.tscn" id="2_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://csbm0yrjynx50" path="res://main/bullets/fireball.tscn" id="3_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://bg4unuv6ard4n" path="res://main/enemy/NightBorne.tscn" id="4_c651c"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xwkvk")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_53q0u")]
 position = Vector2(277, 127)
+projectile_scene = ExtResource("3_xwkvk")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(-0.407333, -0.814667)
-scale = Vector2(0.407332, 0.407332)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(276, 125)
 metadata/_edit_lock_ = true
 
-[node name="NightBorne" parent="." instance=ExtResource("2_pjrb6")]
-position = Vector2(57, 48)
-rotation = 3.14159
-scale = Vector2(-2.765, -2.765)
-player = NodePath("../CharacterBody2D")
-
-[node name="NightBorne3" parent="." instance=ExtResource("2_pjrb6")]
-position = Vector2(55, 215)
-scale = Vector2(2.765, 2.765)
-player = NodePath("../CharacterBody2D")
-
-[node name="NightBorne2" parent="." instance=ExtResource("2_pjrb6")]
-position = Vector2(57, 132)
-rotation = 3.14159
-scale = Vector2(-2.765, -2.765)
-player = NodePath("../CharacterBody2D")
-can_see_player = true
+[node name="NightBorne" parent="." instance=ExtResource("4_c651c")]
+position = Vector2(99, 146)
+scale = Vector2(3.48, 3.48)

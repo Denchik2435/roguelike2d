@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bg4unuv6ard4n"]
+[gd_scene load_steps=64 format=3 uid="uid://bg4unuv6ard4n"]
 
 [ext_resource type="Script" uid="uid://ca6f5rjn8rni3" path="res://main/enemy/night_borne.gd" id="1_vb76u"]
 [ext_resource type="Texture2D" uid="uid://c2p8wc6tlarge" path="res://assets/textures/enemy/NightBorne.png" id="2_3i00s"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://btlnfbbla5qqs" path="res://main/FSM/attack.gd" id="5_ourlx"]
 [ext_resource type="Script" uid="uid://bn7pkxeuvb07v" path="res://main/FSM/damage.gd" id="6_wwesy"]
 [ext_resource type="Script" uid="uid://ciojll1vvf35v" path="res://main/FSM/die.gd" id="7_a7xjj"]
-[ext_resource type="Script" uid="uid://dan6hcfxs43oh" path="res://main/FSM/chase.gd" id="8_ourlx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vb76u"]
 radius = 14.0
@@ -456,9 +455,6 @@ script = ExtResource("6_wwesy")
 
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource("7_a7xjj")
-
-[node name="Chase" type="Node" parent="StateMachine"]
-script = ExtResource("8_ourlx")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="AttackBox" to="." method="_on_attack_box_area_entered"]

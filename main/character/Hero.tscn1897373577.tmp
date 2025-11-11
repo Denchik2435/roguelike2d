@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cdmuymyac5p07"]
+[gd_scene load_steps=44 format=3 uid="uid://cdmuymyac5p07"]
 
 [ext_resource type="Texture2D" uid="uid://ensxa33f2kxk" path="res://assets/textures/character/Necromancer_creativekind-Sheet.png" id="1_3rotv"]
 [ext_resource type="Script" uid="uid://dleelgvum42ca" path="res://main/character/hero.gd" id="1_mi437"]
@@ -6,11 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bj2qtphxsvvj8" path="res://assets/textures/effects/light_bullet.png" id="4_lhspf"]
 [ext_resource type="Script" uid="uid://bj7t8808g6m3" path="res://main/FSM/move.gd" id="5_cfd21"]
 [ext_resource type="Script" uid="uid://btlnfbbla5qqs" path="res://main/FSM/attack.gd" id="6_0y1ox"]
-[ext_resource type="Script" uid="uid://bn7pkxeuvb07v" path="res://main/FSM/damage.gd" id="7_cfd21"]
-[ext_resource type="Script" uid="uid://ciojll1vvf35v" path="res://main/FSM/die.gd" id="8_0y1ox"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0y1ox"]
-height = 35.8452
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mi437"]
 atlas = ExtResource("1_3rotv")
@@ -287,14 +282,6 @@ height = 36.0
 scale = Vector2(2.455, 2.455)
 script = ExtResource("1_mi437")
 
-[node name="HitBox" type="Area2D" parent="."]
-scale = Vector2(1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-light_mask = 4
-visibility_layer = 2
-shape = SubResource("CapsuleShape2D_0y1ox")
-
 [node name="Face" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Face"]
@@ -336,12 +323,5 @@ script = ExtResource("5_cfd21")
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("6_0y1ox")
 
-[node name="Damage" type="Node" parent="StateMachine"]
-script = ExtResource("7_cfd21")
-
-[node name="Die" type="Node" parent="StateMachine"]
-script = ExtResource("8_0y1ox")
-
-[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="animation_finished" from="Face/AnimatedSprite2D" to="StateMachine/Attack" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="Face/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
