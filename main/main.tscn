@@ -1,23 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://kx61lnw0d33w"]
+[gd_scene load_steps=6 format=3 uid="uid://kx61lnw0d33w"]
 
 [ext_resource type="PackedScene" uid="uid://cdmuymyac5p07" path="res://main/character/Hero.tscn" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://dxbevt210tana" path="res://main/main.gd" id="1_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://csbm0yrjynx50" path="res://main/bullets/fireball.tscn" id="3_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://bg4unuv6ard4n" path="res://main/enemy/NightBorne.tscn" id="4_c651c"]
+[ext_resource type="PackedScene" uid="uid://du2lp7dtdwpih" path="res://main/enemy/slime.tscn" id="5_3wy1v"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(-2, 0)
 script = ExtResource("1_xwkvk")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_53q0u")]
-position = Vector2(296.00003, 122.00001)
+position = Vector2(252, 112)
 projectile_scene = ExtResource("3_xwkvk")
-attack = 0.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(276, 125)
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+scale = Vector2(0.40733197, 0.40733197)
 metadata/_edit_lock_ = true
 
 [node name="NightBorne" parent="." instance=ExtResource("4_c651c")]
-position = Vector2(92, 116)
+position = Vector2(57.000008, 115.00001)
 scale = Vector2(3.58, 3.58)
+
+[node name="Slime" parent="." instance=ExtResource("5_3wy1v")]
+position = Vector2(113, 19)
+scale = Vector2(3.725, 3.725)
+health = 225
+attack = 0.125
+attack_frame = 3

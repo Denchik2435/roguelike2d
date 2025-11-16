@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc0lqrr8lxyjp"]
+[gd_scene load_steps=10 format=3 uid="uid://bc0lqrr8lxyjp"]
 
 [ext_resource type="Script" uid="uid://c7y87b3nkkgcj" path="res://main/character/character.gd" id="1_gep86"]
 [ext_resource type="Script" uid="uid://bqj5t86hi4m3n" path="res://main/FSM/state_machine.gd" id="2_bop78"]
@@ -8,8 +8,35 @@
 [ext_resource type="Script" uid="uid://ciojll1vvf35v" path="res://main/FSM/die.gd" id="6_3uwmn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ild5u"]
+radius = 8.0
+height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxi7u"]
+radius = 8.0
+height = 22.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gep86"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_gep86")
@@ -25,8 +52,12 @@ shape = SubResource("CapsuleShape2D_qxi7u")
 [node name="Face" type="Node2D" parent="."]
 
 [node name="Animation" type="AnimatedSprite2D" parent="Face"]
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_gep86")
+animation = &"attack"
 
 [node name="Effects" type="AnimatedSprite2D" parent="Face"]
+texture_filter = 3
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_bop78")

@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://duh82fnaqlxri"]
+
+[ext_resource type="PackedScene" uid="uid://bc0lqrr8lxyjp" path="res://main/character/character.tscn" id="1_iblou"]
+[ext_resource type="Script" uid="uid://ct45cg13se2ef" path="res://main/enemy/enemy.gd" id="2_b8jve"]
+[ext_resource type="Script" uid="uid://dan6hcfxs43oh" path="res://main/FSM/chase.gd" id="3_5731b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_faf7x"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"chase",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tjrd4"]
+radius = 22.0
+
+[node name="Enemy" instance=ExtResource("1_iblou")]
+script = ExtResource("2_b8jve")
+player = NodePath("")
+
+[node name="Animation" parent="Face" index="0"]
+sprite_frames = SubResource("SpriteFrames_faf7x")
+
+[node name="StateMachine" parent="." index="3"]
+script = ExtResource("3_5731b")
+
+[node name="Chase" type="Node" parent="StateMachine" index="4"]
+script = ExtResource("3_5731b")
+
+[node name="AttackBox" type="Area2D" parent="." index="4"]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox" index="0"]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("CircleShape2D_tjrd4")

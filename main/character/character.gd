@@ -4,7 +4,7 @@ class_name Character
 @export var health: int 
 @export var speed : float
 @export var attack : float
-@onready var attack_frame : int
+@export var attack_frame : int
 @onready var anim = $Face/Animation
 @onready var effects = $Face/Effects
 @onready var face = $Face
@@ -43,6 +43,7 @@ func _physics_process(delta: float) -> void:
 func take_damage(amount):
 	health -= amount
 	fsm.change_to("Damage")
+	print(health)
 
 
 func do_attack():
