@@ -36,7 +36,7 @@ func play_anim(_name : String, fn: Callable = Callable()):
 func _physics_process(delta: float) -> void:
 	fsm.physics_update(delta)
 	if health <= 0:
-		$HitBox/CollisionShape2D.set_deferred("disabled", true)
+		$CollisionShape2D.set_deferred("disabled", true)
 		fsm.change_to("Die")
 
 
@@ -53,11 +53,7 @@ func do_attack():
 func disable():
 	$CollisionShape2D.disabled = true
 
-#func _on_animated_sprite_2d_frame_changed() -> void: 
-	#if anim.animation == "attack" and anim.frame == attack_frame: 
-		#do_attack() 
 
-
-func _on_animated_sprite_2d_animation_finished() -> void:
+func _on_animation_animation_finished() -> void:
 	if health > 0:
 		fsm.to_default()

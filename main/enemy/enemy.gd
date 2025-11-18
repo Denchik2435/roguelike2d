@@ -19,28 +19,14 @@ func _ready():
 	fsm.change_to("Chase")
 
 
-#func take_damage(amount):
-	#health -= amount
-	#fsm.change_to("Damage")
-
-
 func do_attack():
 	Eventbus.emit_signal("attack_player", attack)
 
 
-#func _on_attack_box_area_entered(_area: Area2D) -> void:
-	#fsm.change_to("Attack")
-	#print("attackk")
-
-
-#func _on_attack_box_area_exited(_area: Area2D) -> void:
-	##fsm.change_to("Chase")
-	#fsm.to_default()
-
-
-func _on_attack_box_area_entered(_area: Area2D) -> void:
+func _on_attack_box_body_entered(_body: Character) -> void:
 	fsm.change_to("Attack")
+	print("body")
 
 
-func _on_attack_box_area_exited(_area: Area2D) -> void:
+func _on_attack_box_body_exited(_body: Character) -> void:
 	fsm.to_default()

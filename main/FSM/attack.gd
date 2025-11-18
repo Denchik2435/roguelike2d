@@ -3,7 +3,7 @@ extends State
 @onready var player = false
 
 func enter():
-	
+
 	if actor.is_in_group("player"):
 		player = true
 	actor.anim.play("attack")

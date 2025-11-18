@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://kx61lnw0d33w"]
 
-[ext_resource type="PackedScene" uid="uid://cdmuymyac5p07" path="res://main/character/Hero.tscn" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://dxbevt210tana" path="res://main/main.gd" id="1_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://csbm0yrjynx50" path="res://main/bullets/fireball.tscn" id="3_xwkvk"]
-[ext_resource type="PackedScene" uid="uid://bg4unuv6ard4n" path="res://main/enemy/NightBorne.tscn" id="4_c651c"]
 [ext_resource type="PackedScene" uid="uid://du2lp7dtdwpih" path="res://main/enemy/slime.tscn" id="5_3wy1v"]
+[ext_resource type="PackedScene" uid="uid://c1nstqtgb0f00" path="res://main/character/hero.tscn" id="5_kfbq2"]
+[ext_resource type="PackedScene" uid="uid://cwukvt23erbwd" path="res://main/enemy/NightWarrior.tscn" id="6_4dugh"]
 [ext_resource type="PackedScene" uid="uid://cwqq7qe7n5vdw" path="res://main/locations/dungeon/dungeon.tscn" id="6_kfbq2"]
 
 [node name="Main" type="Node2D"]
@@ -15,26 +15,25 @@ script = ExtResource("1_xwkvk")
 position = Vector2(140, 43)
 metadata/_edit_lock_ = true
 
-[node name="CharacterBody2D" parent="Dungeon" instance=ExtResource("1_53q0u")]
-z_index = 2
-position = Vector2(13, 46)
-scale = Vector2(1, 1)
-projectile_scene = ExtResource("3_xwkvk")
-health = 200
-speed = 227.505
-
-[node name="Camera2D" type="Camera2D" parent="Dungeon/CharacterBody2D"]
-zoom = Vector2(1.8, 1.8)
-metadata/_edit_lock_ = true
-
-[node name="NightBorne" parent="Dungeon" instance=ExtResource("4_c651c")]
-position = Vector2(-238, 188)
-scale = Vector2(1.56, 1.56)
-
 [node name="Slime" parent="Dungeon" instance=ExtResource("5_3wy1v")]
 position = Vector2(205, 307)
+collision_layer = 1
 attack_frame = 3
 
-[node name="NightBorne2" parent="Dungeon" instance=ExtResource("4_c651c")]
-position = Vector2(-323, 40)
-scale = Vector2(1.56, 1.56)
+[node name="Slime2" parent="Dungeon" instance=ExtResource("5_3wy1v")]
+position = Vector2(167, 307)
+collision_layer = 1
+attack_frame = 3
+
+[node name="Hero" parent="." instance=ExtResource("5_kfbq2")]
+position = Vector2(148, 92)
+projectile_scene = ExtResource("3_xwkvk")
+health = 485
+speed = 110.07
+attack = 16.025
+attack_frame = 8
+
+[node name="Camera2D" type="Camera2D" parent="Hero"]
+zoom = Vector2(1.965, 1.965)
+
+[node name="Enemy" parent="." instance=ExtResource("6_4dugh")]
