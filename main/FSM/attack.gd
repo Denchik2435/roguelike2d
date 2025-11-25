@@ -2,8 +2,8 @@ extends State
 
 @onready var player = false
 
-func enter():
 
+func enter():
 	if actor.is_in_group("player"):
 		player = true
 	actor.anim.play("attack")
@@ -36,6 +36,7 @@ func physics_update(_delta):
 func attack():
 	if actor.anim.frame == actor.attack_frame:
 		actor.do_attack()
+		actor.play_sound("attack")
 
 func exit():
 	actor.anim.disconnect("frame_changed", Callable(self, "attack"))

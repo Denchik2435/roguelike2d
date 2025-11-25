@@ -1,7 +1,11 @@
-[gd_scene load_steps=56 format=3 uid="uid://cwukvt23erbwd"]
+[gd_scene load_steps=60 format=3 uid="uid://cwukvt23erbwd"]
 
 [ext_resource type="PackedScene" uid="uid://duh82fnaqlxri" path="res://main/enemy/enemy.tscn" id="1_ya662"]
 [ext_resource type="Texture2D" uid="uid://c2p8wc6tlarge" path="res://assets/textures/enemy/NightBorne.png" id="2_7a8bs"]
+[ext_resource type="AudioStream" uid="uid://bbh4esntw3rsd" path="res://assets/sounds/enemy/night_warrior/attack.ogg" id="2_bgen6"]
+[ext_resource type="AudioStream" uid="uid://646yaiir78vr" path="res://assets/sounds/enemy/damage.ogg" id="2_cncnv"]
+[ext_resource type="AudioStream" uid="uid://ddfk1nqutak1r" path="res://assets/sounds/enemy/night_warrior/die.ogg" id="3_po31c"]
+[ext_resource type="AudioStream" uid="uid://be4qcuywyifnc" path="res://assets/sounds/enemy/night_warrior/chase.ogg" id="4_cncnv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t51sb"]
 atlas = ExtResource("2_7a8bs")
@@ -401,11 +405,19 @@ health = 120
 speed = 150.0
 attack = 19.0
 attack_frame = 6
+die_frame = 13
+sounds = Dictionary[String, AudioStream]({
+"attack": ExtResource("2_bgen6"),
+"chase": ExtResource("4_cncnv"),
+"damage": ExtResource("2_cncnv"),
+"die": ExtResource("3_po31c")
+})
 
 [node name="Animation" parent="Face" index="0"]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_bgen6")
-animation = &"attack"
+animation = &"die"
+frame = 13
 offset = Vector2(-0.425, -5.68)
 
 [node name="Effects" parent="Face" index="1"]

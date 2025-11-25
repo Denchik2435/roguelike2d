@@ -147,6 +147,9 @@ light_mask = 2
 visibility_layer = 2
 shape = SubResource("CircleShape2D_tjrd4")
 
+[node name="AudioStreamPlayer2D" parent="." index="4"]
+volume_db = -2.0
+
 [connection signal="area_entered" from="AttackBox" to="." method="_on_attack_box_area_entered"]
 [connection signal="area_exited" from="AttackBox" to="." method="_on_attack_box_area_exited"]
 [connection signal="body_entered" from="AttackBox" to="." method="_on_attack_box_body_entered"]

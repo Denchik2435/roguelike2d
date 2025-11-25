@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d33dftgewpw1f"]
+[gd_scene load_steps=14 format=3 uid="uid://d33dftgewpw1f"]
 
 [ext_resource type="Script" uid="uid://xbmh7t7e7kn6" path="res://main/UI/menu.gd" id="1_37ek2"]
 [ext_resource type="Texture2D" uid="uid://7i5dpbv6mww3" path="res://main/UI/menu.tres" id="2_hnf3l"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cdn48s0vkrp3u" path="res://exported_frames/frame_3.png" id="7_vjywk"]
 [ext_resource type="Texture2D" uid="uid://c6e654nbvsc64" path="res://exported_frames/frame_4.png" id="8_nm8qa"]
 [ext_resource type="Texture2D" uid="uid://br6nmnbx07ns1" path="res://exported_frames/frame_5.png" id="9_m21rw"]
+[ext_resource type="AudioStream" uid="uid://cebo7dc0u3caw" path="res://assets/sounds/enemy/soundtrack/Factory.ogg" id="10_f2nar"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_hnf3l"]
 frames = 6
@@ -93,5 +94,9 @@ size_flags_vertical = 4
 shortcut = SubResource("Shortcut_hnf3l")
 text = "S T A R T"
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_f2nar")
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

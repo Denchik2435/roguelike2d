@@ -1,7 +1,7 @@
 extends Node
 class_name State
 
-var actor
+var actor : Character = null
 
 func enter():
 	pass

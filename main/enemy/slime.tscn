@@ -1,7 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://du2lp7dtdwpih"]
+[gd_scene load_steps=37 format=3 uid="uid://du2lp7dtdwpih"]
 
 [ext_resource type="PackedScene" uid="uid://duh82fnaqlxri" path="res://main/enemy/enemy.tscn" id="1_y47ul"]
 [ext_resource type="Texture2D" uid="uid://ddqxxlr05qikm" path="res://assets/textures/enemy/slime-Sheet.png" id="2_28kc4"]
+[ext_resource type="AudioStream" uid="uid://646yaiir78vr" path="res://assets/sounds/enemy/damage.ogg" id="2_r1rll"]
+[ext_resource type="AudioStream" uid="uid://dvl7tfe0i0u5r" path="res://assets/sounds/enemy/slime/attack.ogg" id="3_iwi5n"]
+[ext_resource type="AudioStream" uid="uid://b27d8nacsgqhi" path="res://assets/sounds/enemy/slime/chase.ogg" id="4_iwi5n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_28kc4"]
 radius = 6.0
@@ -251,7 +254,15 @@ animations = [{
 texture_filter = 0
 health = 80
 speed = 80.0
+attack = 10.165
 attack_frame = 3
+die_frame = 2
+sounds = Dictionary[String, AudioStream]({
+"attack": ExtResource("3_iwi5n"),
+"chase": ExtResource("4_iwi5n"),
+"damage": ExtResource("2_r1rll"),
+"die": ExtResource("3_iwi5n")
+})
 
 [node name="CollisionShape2D" parent="." index="0"]
 rotation = 1.5708
@@ -259,7 +270,7 @@ shape = SubResource("CapsuleShape2D_28kc4")
 
 [node name="Animation" parent="Face" index="0"]
 sprite_frames = SubResource("SpriteFrames_phfuy")
-animation = &"attack"
+animation = &"die"
 offset = Vector2(-1.36, -8.425)
 
 [node name="Effects" parent="Face" index="1"]

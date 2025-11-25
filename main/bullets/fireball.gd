@@ -2,9 +2,17 @@ extends Area2D
 
 @export var speed: float = 600.0
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
-var damage = Global.attack * 1.2
-var direction: Vector2 = Vector2.ZERO
-var fly := true
+@onready var audio : AudioStreamPlayer2D = $AudioStreamPlayer2D
+var sounds : Dictionary[String, AudioStream] = {"damage" : preload("res://assets/sounds/enemy/damage.ogg")}
+var damage : float = Global.attack * 1.2
+var direction : Vector2 = Vector2.ZERO
+var fly : bool = true
+
+
+func play_sound(_name : String):
+	if sounds.has(_name):
+		audio.stream = sounds[_name]
+		audio.play()
 
 
 func _play_anim(_name : String, _fn : Callable = Callable()) -> void:
@@ -39,6 +47,8 @@ func _damage(body):
 
 func _on_body_entered(body: Node2D) -> void:
 	fly = false
+	play_sound("damage")
+	
 	if body is Enemy:
 		_damage(body)
 	else:

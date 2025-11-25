@@ -1,9 +1,11 @@
-[gd_scene load_steps=44 format=3 uid="uid://c1nstqtgb0f00"]
+[gd_scene load_steps=46 format=3 uid="uid://c1nstqtgb0f00"]
 
 [ext_resource type="PackedScene" uid="uid://bc0lqrr8lxyjp" path="res://main/character/character.tscn" id="1_j4os2"]
 [ext_resource type="Script" uid="uid://dleelgvum42ca" path="res://main/character/hero.gd" id="2_dldjo"]
+[ext_resource type="AudioStream" uid="uid://646yaiir78vr" path="res://assets/sounds/enemy/damage.ogg" id="3_5yfqu"]
 [ext_resource type="Texture2D" uid="uid://ensxa33f2kxk" path="res://assets/textures/character/Necromancer_creativekind-Sheet.png" id="3_d8xpe"]
 [ext_resource type="Texture2D" uid="uid://bj2qtphxsvvj8" path="res://assets/textures/effects/light_bullet.png" id="3_dldjo"]
+[ext_resource type="AudioStream" uid="uid://bfj7gh7sr8rn7" path="res://assets/sounds/fire/a-sudden-burst-of-fire.ogg" id="4_5bngo"]
 [ext_resource type="Texture2D" uid="uid://ddqxxlr05qikm" path="res://assets/textures/enemy/slime-Sheet.png" id="4_dldjo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37t01"]
@@ -288,6 +290,10 @@ animations = [{
 collision_layer = 2
 script = ExtResource("2_dldjo")
 projectile_scene = null
+sounds = Dictionary[String, AudioStream]({
+"attack": ExtResource("4_5bngo"),
+"damage": ExtResource("3_5yfqu")
+})
 
 [node name="CollisionShape2D" parent="." index="0"]
 y_sort_enabled = true
@@ -296,9 +302,7 @@ shape = SubResource("CapsuleShape2D_37t01")
 [node name="Animation" parent="Face" index="0"]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_dldjo")
-animation = &"idle"
-frame = 4
-frame_progress = 0.80085975
+animation = &"die"
 offset = Vector2(-1.21, -22.4)
 
 [node name="Effects" parent="Face" index="1"]
@@ -315,3 +319,6 @@ enabled = false
 color = Color(0.968627, 0.827451, 0.00784314, 1)
 energy = 16.0
 texture = ExtResource("3_dldjo")
+
+[node name="AudioStreamPlayer2D" parent="." index="3"]
+volume_db = -10.0

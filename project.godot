@@ -26,9 +26,9 @@ Eventbus="*res://main/globals/eventbus.gd"
 
 [display]
 
-window/size/viewport_width=256
-window/size/viewport_height=240
-window/size/borderless=true
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [input]
 

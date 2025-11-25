@@ -12,4 +12,5 @@ extends Control
 
 
 func _on_button_pressed() -> void:
+	$AudioStreamPlayer.stop()
 	get_tree().change_scene_to_file("res://main/game.tscn")

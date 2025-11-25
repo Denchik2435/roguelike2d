@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm0rd2jbm4egr"]
+[gd_scene load_steps=9 format=3 uid="uid://dm0rd2jbm4egr"]
 
 [ext_resource type="Script" uid="uid://dxbevt210tana" path="res://main/main.gd" id="1_3qcir"]
 [ext_resource type="PackedScene" uid="uid://j2utusg7nykl" path="res://main/UI/HUD.tscn" id="2_jc0vi"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csbm0yrjynx50" path="res://main/bullets/fireball.tscn" id="4_4u4fy"]
 [ext_resource type="PackedScene" uid="uid://cwqq7qe7n5vdw" path="res://main/locations/dungeon/dungeon.tscn" id="5_j015t"]
 [ext_resource type="PackedScene" uid="uid://d03he3fwk6nwb" path="res://main/locations/edge.tscn" id="6_hlcqn"]
+[ext_resource type="AudioStream" uid="uid://cky6185pf4nb7" path="res://assets/sounds/enemy/soundtrack/fires-of-anticipation_91140.ogg" id="7_jc0vi"]
 
 [sub_resource type="Curve2D" id="Curve2D_v3ojx"]
 _data = {
@@ -14,6 +15,7 @@ _data = {
 point_count = 5
 
 [node name="Game" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_3qcir")
 
 [node name="Hud" parent="." instance=ExtResource("2_jc0vi")]
@@ -50,5 +52,10 @@ position = Vector2(-760, -512)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jc0vi")
+volume_db = -8.0
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
