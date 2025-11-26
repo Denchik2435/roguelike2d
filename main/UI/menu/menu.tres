@@ -5,6 +5,6 @@ colors = PackedColorArray(0.76862746, 0.39607844, 0, 0, 1, 0.4117647, 0.01960784
 
 [resource]
 gradient = SubResource("Gradient_hnf3l")
-fill_from = Vector2(0.5, 0)
-fill_to = Vector2(0.5, 1)
+fill_from = Vector2(0.5, 0.3)
+fill_to = Vector2(0.5, 0.8)
 metadata/_snap_enabled = true

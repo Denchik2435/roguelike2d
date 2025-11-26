@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bq6w5cbmrodmp"]
+[gd_scene load_steps=14 format=3 uid="uid://bq6w5cbmrodmp"]
 
 [ext_resource type="Texture2D" uid="uid://7i5dpbv6mww3" path="res://main/UI/menu/menu.tres" id="1_fd3nf"]
 [ext_resource type="Script" uid="uid://0ld4l0dtkpa6" path="res://main/UI/credits/credits.gd" id="1_uqc05"]
@@ -10,6 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://c6e654nbvsc64" path="res://exported_frames/frame_4.png" id="6_s68ik"]
 [ext_resource type="Texture2D" uid="uid://br6nmnbx07ns1" path="res://exported_frames/frame_5.png" id="7_4jy1o"]
 [ext_resource type="PackedScene" uid="uid://b3fc1acjxjhk8" path="res://main/globals/SoundManager.tscn" id="9_b5238"]
+
+[sub_resource type="Gradient" id="Gradient_qi0qp"]
+colors = PackedColorArray(0.3137255, 0.09803922, 0.65882355, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s68ik"]
+gradient = SubResource("Gradient_qi0qp")
+fill_from = Vector2(0.5, 0.90000004)
+fill_to = Vector2(0.5, 0.1)
+metadata/_snap_enabled = true
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_5ke40"]
 frames = 6
@@ -35,76 +44,123 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uqc05")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2"]
+z_index = 2
+layout_mode = 2
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/MarginContainer"]
 z_index = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_fd3nf")
-stretch_mode = 6
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_qi0qp")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 35
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 35
-theme_override_constants/margin_bottom = 50
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-texture_filter = 3
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = SubResource("AnimatedTexture_5ke40")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = SubResource("AnimatedTexture_5ke40")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="SoundManager" parent="." instance=ExtResource("9_b5238")]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-z_index = 4
-layout_mode = 0
-offset_left = 18.0
-offset_top = 50.0
-offset_right = 1262.0
-offset_bottom = 670.0
-
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "< A U T O R >"
 
-[node name="Autor" type="Button" parent="VBoxContainer"]
+[node name="Autor" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "M E N S H I K O V   M A X I M"
 flat = true
 
-[connection signal="pressed" from="VBoxContainer/Autor" to="." method="_on_autor_pressed"]
+[node name="Assets" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "< A U T O R S   O F   A S S E T S >"
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="CreativeKind" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "C r e a t i v e K i n d"
+flat = true
+
+[node name="LuckyLoops" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "L u c k y L o o p s "
+flat = true
+
+[node name="Free" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Free and Premium Game Assets (GUI, Sprite, Tilesets)"
+flat = true
+
+[node name="Label" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = ". . ."
+
+[node name="Sounds" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "S O U N D S"
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+z_index = 2
+layout_mode = 2
+texture = ExtResource("1_fd3nf")
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer2"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("3_qi0qp")
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer2"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("GradientTexture2D_s68ik")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+z_index = 1
+texture_filter = 3
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+texture = SubResource("AnimatedTexture_5ke40")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 3
+texture = SubResource("AnimatedTexture_5ke40")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="SoundManager" parent="." instance=ExtResource("9_b5238")]
+
+[connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/Autor" to="." method="_on_autor_pressed"]
