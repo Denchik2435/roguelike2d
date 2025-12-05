@@ -1,7 +1,7 @@
 extends Character
 class_name Enemy
 
-@export var player: NodePath
+@export var player : NodePath
 @onready var target: Node2D 
 @export var can_attack: bool = true
 @onready var hp_bar = $ProgressBar

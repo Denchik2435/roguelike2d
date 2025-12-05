@@ -118,7 +118,7 @@ animations = [{
 }]
 
 [node name="Bullet" instance=ExtResource("1_3rnub")]
-collision_layer = 8
+collision_layer = 4
 collision_mask = 3
 script = ExtResource("2_ykkg7")
 speed = 300.0
@@ -127,3 +127,9 @@ speed = 300.0
 rotation = 0.0
 scale = Vector2(1.269, 1.16)
 sprite_frames = SubResource("SpriteFrames_wtma0")
+
+[node name="PointLight2D" parent="." index="2"]
+position = Vector2(5.062544, 0)
+scale = Vector2(1.6397407, 1.4554794)
+color = Color(0.9490196, 0.7647059, 0, 1)
+energy = 1.06

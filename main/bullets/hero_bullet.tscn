@@ -509,3 +509,9 @@ shape = SubResource("CapsuleShape2D_8pmqq")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_u1bm1")
+
+[node name="PointLight2D" parent="." index="2"]
+position = Vector2(21.500896, 0)
+scale = Vector2(2.6243298, 2.3972602)
+color = Color(0.9490196, 0.89411765, 0, 1)
+energy = 1.21

@@ -30,6 +30,7 @@ func _fly() -> void:
 
 func _physics_process(delta):
 	if not fly:
+		$PointLight2D.hide()
 		return
 	_fly()
 	position += direction * speed * delta

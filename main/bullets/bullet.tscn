@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bgpsj178gsj44"]
+[gd_scene load_steps=16 format=3 uid="uid://bgpsj178gsj44"]
 
 [ext_resource type="Script" uid="uid://cxcc364xsms55" path="res://main/bullets/bullet.gd" id="1_lwcee"]
 [ext_resource type="Texture2D" uid="uid://c2nowduaeptly" path="res://assets/textures/effects/63.png" id="2_arieu"]
 [ext_resource type="Texture2D" uid="uid://ddqxxlr05qikm" path="res://assets/textures/enemy/slime-Sheet.png" id="3_w36f0"]
-[ext_resource type="Texture2D" uid="uid://bj2qtphxsvvj8" path="res://assets/textures/effects/light_bullet.png" id="5_jqwel"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48ig4"]
 radius = 4.454839
@@ -78,7 +77,19 @@ animations = [{
 "speed": 25.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_rm0m4"]
+offsets = PackedFloat32Array(0.006666667, 1)
+colors = PackedColorArray(1, 1, 0.56078434, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a7xba"]
+gradient = SubResource("Gradient_rm0m4")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.2)
+metadata/_snap_enabled = true
+
 [node name="Bullet" type="Area2D"]
+modulate = Color(1, 0.47058824, 0.18431373, 1)
 light_mask = 5
 visibility_layer = 5
 y_sort_enabled = true
@@ -104,12 +115,12 @@ animation = &"idle"
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(17.3913, 0)
-scale = Vector2(0.382609, 0.208696)
+position = Vector2(-0.4169159, 0)
+scale = Vector2(0.869193, 0.81335616)
 color = Color(0.94902, 0, 0, 1)
 energy = 2.92
-texture = ExtResource("5_jqwel")
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_a7xba")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = 10.0

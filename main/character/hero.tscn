@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c1nstqtgb0f00"]
+[gd_scene load_steps=48 format=3 uid="uid://c1nstqtgb0f00"]
 
 [ext_resource type="PackedScene" uid="uid://bc0lqrr8lxyjp" path="res://main/character/character.tscn" id="1_j4os2"]
 [ext_resource type="Script" uid="uid://dleelgvum42ca" path="res://main/character/hero.gd" id="2_dldjo"]
@@ -286,7 +286,21 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_5yfqu"]
+offsets = PackedFloat32Array(0.006666667, 0.7)
+colors = PackedColorArray(0.43104288, 0.43104288, 0.43104288, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5bngo"]
+gradient = SubResource("Gradient_5yfqu")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
 [node name="Hero" instance=ExtResource("1_j4os2")]
+modulate = Color(1, 0.6431373, 0.39607844, 1)
+light_mask = 0
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("2_dldjo")
@@ -332,3 +346,10 @@ scale = Vector2(1.5, 0.42187503)
 
 [node name="AudioStreamPlayer2D" parent="." index="3"]
 volume_db = -10.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="4"]
+color = Color(1, 0.8980392, 1, 1)
+energy = 1.16
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_5bngo")

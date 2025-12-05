@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bec4bnjejiki7"]
+[gd_scene load_steps=6 format=3 uid="uid://bec4bnjejiki7"]
 
 [ext_resource type="PackedScene" uid="uid://c1nstqtgb0f00" path="res://main/character/hero.tscn" id="1_fnpwn"]
 [ext_resource type="PackedScene" uid="uid://biyhcr5kuedii" path="res://main/enemy/FireWorm.tscn" id="2_3gofr"]
 [ext_resource type="PackedScene" uid="uid://cwukvt23erbwd" path="res://main/enemy/NightWarrior.tscn" id="3_3gofr"]
+[ext_resource type="AudioStream" uid="uid://646yaiir78vr" path="res://assets/sounds/enemy/damage.ogg" id="3_ay2wo"]
+[ext_resource type="PackedScene" uid="uid://cwqq7qe7n5vdw" path="res://main/locations/dungeon/dungeon.tscn" id="4_egjgq"]
 
 [node name="Test" type="Node2D"]
 
@@ -13,9 +15,31 @@ position = Vector2(55, 72)
 zoom = Vector2(2.45, 2.45)
 
 [node name="NightWarrior" parent="." instance=ExtResource("3_3gofr")]
-position = Vector2(289, 122)
+modulate = Color(1, 0.54901963, 1, 1)
+position = Vector2(294, -57)
+collision_layer = 4
+player = NodePath("../Hero")
+can_attack = false
+health = 212
+speed = 105.6
+attack = 20.905
+die_frame = 11
+sounds = Dictionary[String, AudioStream]({
+"damage": ExtResource("3_ay2wo")
+})
+
+[node name="Dungeon" parent="." instance=ExtResource("4_egjgq")]
+z_index = -1
+position = Vector2(17, 5)
+metadata/_edit_lock_ = true
+
+[node name="NightWarrior2" parent="." instance=ExtResource("3_3gofr")]
+collision_layer = 4
+player = NodePath("../Hero")
+can_attack = false
 
 [node name="Enemy" parent="." instance=ExtResource("2_3gofr")]
-position = Vector2(206, 27)
-distant_to_attack = 300.0
+position = Vector2(-202, -60)
+collision_layer = 4
 player = NodePath("../Hero")
+can_attack = false

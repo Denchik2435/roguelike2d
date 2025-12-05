@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dm0rd2jbm4egr"]
+[gd_scene load_steps=10 format=3 uid="uid://dm0rd2jbm4egr"]
 
 [ext_resource type="Script" uid="uid://dxbevt210tana" path="res://main/main.gd" id="1_3qcir"]
 [ext_resource type="PackedScene" uid="uid://j2utusg7nykl" path="res://main/UI/HUD.tscn" id="2_jc0vi"]
@@ -13,6 +13,10 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1109, -832, 0, 0, 0, 0, 1092, -832, 0, 0, 0, 0, 1094, 779, 0, 0, 0, 0, -1115, 777, 0, 0, 0, 0, -1109, -832)
 }
 point_count = 5
+
+[sub_resource type="Environment" id="Environment_jc0vi"]
+background_mode = 3
+tonemap_mode = 3
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -38,6 +42,8 @@ drag_bottom_margin = 0.1
 [node name="Hud" parent="." instance=ExtResource("2_jc0vi")]
 
 [node name="Dungeon" parent="." instance=ExtResource("5_j015t")]
+modulate = Color(0.4390491, 0.43904912, 0.43904912, 1)
+self_modulate = Color(0.67889214, 0.52068067, 0.45406526, 1)
 z_index = -1
 y_sort_enabled = true
 metadata/_edit_lock_ = true
@@ -64,5 +70,8 @@ autoplay = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(8, 82)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jc0vi")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

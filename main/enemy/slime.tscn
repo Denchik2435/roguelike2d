@@ -269,6 +269,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_28kc4")
 
 [node name="Animation" parent="Face" index="0"]
+modulate = Color(0.3764706, 1, 1, 1)
 sprite_frames = SubResource("SpriteFrames_phfuy")
 animation = &"attack"
 frame = 7

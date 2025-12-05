@@ -12,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://d0nnfln5robi8" path="res://assets/textures/enemy/fire_worm/Worm/Idle.png" id="6_f2qwe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_73qon"]
-radius = 11.0
-height = 22.0
+radius = 16.0
+height = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5htaf"]
 atlas = ExtResource("2_0pck0")
@@ -359,8 +359,10 @@ animations = [{
 }]
 
 [node name="Enemy" instance=ExtResource("1_qxbbj")]
+modulate = Color(1, 0.7647059, 0.654902, 1)
+self_modulate = Color(1, 0.12156863, 0.39215687, 1)
 script = ExtResource("2_6ys85")
-distant_to_attack = 500.0
+distant_to_attack = 400.0
 health = 150
 speed = 90.0
 attack = 20.0
