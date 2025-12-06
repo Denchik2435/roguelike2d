@@ -24,6 +24,7 @@ func sound():
 func delete_actor():
 	actor.queue_free()
 	actor.audio.stop()
+	
 
 
 func exit():

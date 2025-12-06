@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://j2utusg7nykl" path="res://main/UI/HUD.tscn" id="2_jc0vi"]
 [ext_resource type="PackedScene" uid="uid://c1nstqtgb0f00" path="res://main/character/hero.tscn" id="3_2c7eb"]
 [ext_resource type="PackedScene" uid="uid://csbm0yrjynx50" path="res://main/bullets/fireball.tscn" id="4_4u4fy"]
-[ext_resource type="PackedScene" uid="uid://cwqq7qe7n5vdw" path="res://main/locations/dungeon/dungeon.tscn" id="5_j015t"]
+[ext_resource type="PackedScene" uid="uid://q77herhoyd84" path="res://main/locations/dungeon/flat.tscn" id="5_jc0vi"]
 [ext_resource type="PackedScene" uid="uid://d03he3fwk6nwb" path="res://main/locations/edge.tscn" id="6_hlcqn"]
 [ext_resource type="AudioStream" uid="uid://cky6185pf4nb7" path="res://assets/sounds/enemy/soundtrack/fires-of-anticipation_91140.ogg" id="7_jc0vi"]
 
@@ -17,6 +17,7 @@ point_count = 5
 [sub_resource type="Environment" id="Environment_jc0vi"]
 background_mode = 3
 tonemap_mode = 3
+tonemap_exposure = 0.48
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -25,6 +26,7 @@ script = ExtResource("1_3qcir")
 [node name="Hero" parent="." instance=ExtResource("3_2c7eb")]
 position = Vector2(8, 83)
 projectile_scene = ExtResource("4_4u4fy")
+attack = 35.0
 
 [node name="Camera2D2" type="Camera2D" parent="Hero"]
 zoom = Vector2(1.97, 1.97)
@@ -41,12 +43,9 @@ drag_bottom_margin = 0.1
 
 [node name="Hud" parent="." instance=ExtResource("2_jc0vi")]
 
-[node name="Dungeon" parent="." instance=ExtResource("5_j015t")]
-modulate = Color(0.4390491, 0.43904912, 0.43904912, 1)
-self_modulate = Color(0.67889214, 0.52068067, 0.45406526, 1)
+[node name="Flat" parent="." instance=ExtResource("5_jc0vi")]
 z_index = -1
 y_sort_enabled = true
-metadata/_edit_lock_ = true
 
 [node name="Edge" parent="." instance=ExtResource("6_hlcqn")]
 z_index = 4

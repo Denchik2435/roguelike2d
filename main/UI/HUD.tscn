@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://j2utusg7nykl"]
+[gd_scene load_steps=5 format=3 uid="uid://j2utusg7nykl"]
 
+[ext_resource type="Script" uid="uid://bh8wduavaky5n" path="res://main/UI/hud.gd" id="1_3wchm"]
 [ext_resource type="PackedScene" uid="uid://rv38o6di5w3i" path="res://main/UI/hp-bar/hero_hp_bar.tscn" id="1_yxm2k"]
 
+[sub_resource type="Gradient" id="Gradient_6jbe5"]
+offsets = PackedFloat32Array(0.18666667, 0.6933333)
+colors = PackedColorArray(0.34509805, 1, 1, 1, 0, 0.54901963, 0.6901961, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uhjjh"]
+gradient = SubResource("Gradient_6jbe5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
 [node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_3wchm")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 643.0
@@ -11,3 +23,23 @@ size_flags_horizontal = 0
 
 [node name="HpBar" parent="MarginContainer" instance=ExtResource("1_yxm2k")]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -643.0
+offset_bottom = 67.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_uhjjh")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "0"

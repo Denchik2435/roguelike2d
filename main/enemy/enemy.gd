@@ -16,6 +16,7 @@ func disable():
 	super()
 	$AttackBox/CollisionShape2D.set_deferred("disabled", true)
 	$ProgressBar.hide()
+	Global.spawn_soul(position)
 	
 
 func _ready():

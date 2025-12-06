@@ -23,7 +23,7 @@ func take_damage(amount):
 func do_attack():
 	var _fireball = fireball.instantiate()
 	get_tree().current_scene.add_child(_fireball)
-	_fireball.set_damage(30)
+	_fireball.set_damage(Global.attack)
 	_fireball.global_position = shoot_point.global_position
 	
 	
