@@ -14,13 +14,14 @@ class_name Character
 @onready var default_state : String
 @onready var audio : AudioStreamPlayer2D = $AudioStreamPlayer2D
 @export var sounds : Dictionary[String, AudioStream] = {"damage":preload("res://assets/sounds/enemy/damage.ogg")}
-@export var sounds_volumes : int
+@export var sounds_volumes : int = 0
 
 func play_sound(_name: String, _volume = sounds_volumes):
 	if sounds.has(_name):
 		audio.stream = sounds[_name]
-		audio.volume_db = _volume
+		audio.volume_db = (_volume * Global.k_volume_effects)
 		audio.play()
+
 
 
 func setup(_health:int, _speed:float, _attack:float, _attack_frame:int, _die_frame:int) -> void:
@@ -30,8 +31,12 @@ func setup(_health:int, _speed:float, _attack:float, _attack_frame:int, _die_fra
 	self.attack_frame = _attack_frame
 	self.die_frame = _die_frame
 
+func change_volume():
+	audio.volume_db *= Global.k_volume_effects
+
 
 func _ready() -> void:
+	Global.connect("change_volume", Callable(self, "change_volume"))
 	fsm.init(self)
 	effects.hide()
 

@@ -41,3 +41,4 @@ func collect():
 		Global.take_soul.emit()
 		actor.play_effects("collect")
 		actor.play_sound("collect")
+		

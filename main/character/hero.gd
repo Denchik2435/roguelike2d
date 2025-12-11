@@ -52,15 +52,6 @@ func do_attack():
 	_fireball.direction = final_dir
 	_fireball.rotation = final_angle
 
-	shoot_flash()
-
-
-
-func shoot_flash():
-	flash.visible = true
-	await get_tree().create_timer(1).timeout
-	flash.visible = false
-
 
 func _on_collector_area_entered(area: Area2D) -> void:
 	if area is Soul:

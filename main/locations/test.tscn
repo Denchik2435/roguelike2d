@@ -1,18 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bec4bnjejiki7"]
+[gd_scene load_steps=7 format=3 uid="uid://bec4bnjejiki7"]
 
 [ext_resource type="PackedScene" uid="uid://c1nstqtgb0f00" path="res://main/character/hero.tscn" id="1_fnpwn"]
 [ext_resource type="PackedScene" uid="uid://biyhcr5kuedii" path="res://main/enemy/FireWorm.tscn" id="2_3gofr"]
 [ext_resource type="PackedScene" uid="uid://cwukvt23erbwd" path="res://main/enemy/NightWarrior.tscn" id="3_3gofr"]
+[ext_resource type="PackedScene" uid="uid://dbcx4q506635j" path="res://main/items/soul.tscn" id="5_ay2wo"]
 [ext_resource type="PackedScene" uid="uid://j2utusg7nykl" path="res://main/UI/HUD.tscn" id="6_mtt42"]
+[ext_resource type="PackedScene" uid="uid://q77herhoyd84" path="res://main/locations/dungeon/flat.tscn" id="6_te8x6"]
 
 [node name="Test" type="Node2D"]
+position = Vector2(0, 1)
 
 [node name="NightWarrior" parent="." instance=ExtResource("3_3gofr")]
-can_attack = false
 
 [node name="Enemy" parent="." instance=ExtResource("2_3gofr")]
 position = Vector2(-60, 4)
-player = NodePath("../Hero")
 
 [node name="Hud" parent="." instance=ExtResource("6_mtt42")]
 
@@ -21,3 +22,15 @@ position = Vector2(0, 173)
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
 zoom = Vector2(2.45, 2.45)
+
+[node name="Soul" parent="." instance=ExtResource("5_ay2wo")]
+position = Vector2(-243, 154)
+
+[node name="Soul2" parent="." instance=ExtResource("5_ay2wo")]
+position = Vector2(-229, 205)
+
+[node name="Soul3" parent="." instance=ExtResource("5_ay2wo")]
+position = Vector2(-284, 190)
+
+[node name="Flat" parent="." instance=ExtResource("6_te8x6")]
+z_index = -1

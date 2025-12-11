@@ -9,7 +9,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.play()
 
 
-func flash_light(duration := 0.5, start_energy := 1.0):
+func flash_light(duration := 0.2, start_energy := 1.0):
 	var light := $PointLight2D
 	light.energy = start_energy
 	

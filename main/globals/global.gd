@@ -7,6 +7,7 @@ signal attack_player(damage)
 signal player_dead
 signal die_enemy
 signal take_soul
+signal change_volume
 
 
 func _ready() -> void:
@@ -20,13 +21,19 @@ var speed = 170
 var attack = 50
 var souls = 0
 
+##sound volume
+
+var k_volume = 0.5
+var k_volume_effects = 0.5
+
 ##router
 
 var scens = {
 	"menu": "res://main/UI/menu/menu.tscn",
 	"game": "res://main/game.tscn",
 	"lose": "res://main/UI/Lose_screen.tscn",
-	"credits": "res://main/UI/credits/Credits.tscn"
+	"credits": "res://main/UI/credits/Credits.tscn",
+	"settings": "res://main/UI/menu/settings.tscn"
 }
 
 func go_to(_name: String):
@@ -39,7 +46,7 @@ func spawn_soul(position, parent):
 	var soul := soul_scene.instantiate()
 	soul.position = position
 	parent.add_child(soul)
-	print(parent)
+
 
 func add_soul():
 	souls += 1

@@ -73,6 +73,14 @@ shortcut = SubResource("Shortcut_hnf3l")
 text = "S T A R T"
 flat = true
 
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer2"]
+z_index = 1
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 30
+text = "S E T T I N G S"
+flat = true
+
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -94,5 +102,6 @@ flat = true
 [node name="SoundManager" parent="." instance=ExtResource("12_vjywk")]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/Exit" to="." method="_on_exit_pressed"]
