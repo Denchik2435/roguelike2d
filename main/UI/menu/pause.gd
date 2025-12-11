@@ -23,4 +23,8 @@ func _on_continue_pressed() -> void:
 func _on_settings_pressed() -> void:
 	pause_menu.visible = false
 	settings_menu.visible = true
-	
+
+
+func _on_exit_pressed() -> void:
+	get_parent().pause(false)
+	Global.go_to("menu")

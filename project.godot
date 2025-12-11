@@ -36,6 +36,7 @@ window/size/viewport_height=720
 
 [gui]
 
+theme/custom="uid://bxboh3d6i323h"
 theme/custom_font="uid://ykrdnb3bqdve"
 
 [input]

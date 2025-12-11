@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq6w5cbmrodmp"]
+[gd_scene load_steps=8 format=3 uid="uid://bq6w5cbmrodmp"]
 
 [ext_resource type="Texture2D" uid="uid://7i5dpbv6mww3" path="res://main/UI/menu/menu.tres" id="1_fd3nf"]
 [ext_resource type="Script" uid="uid://0ld4l0dtkpa6" path="res://main/UI/credits/credits.gd" id="1_uqc05"]
 [ext_resource type="Texture2D" uid="uid://bspdfof1ikrcx" path="res://main/UI/menu/menu2.tres" id="3_qi0qp"]
-[ext_resource type="PackedScene" uid="uid://b3fc1acjxjhk8" path="res://main/globals/SoundManager.tscn" id="9_b5238"]
 
 [sub_resource type="Gradient" id="Gradient_qi0qp"]
 colors = PackedColorArray(0.3137255, 0.09803922, 0.65882355, 1, 1, 1, 1, 0)
@@ -140,8 +139,6 @@ mouse_default_cursor_shape = 2
 shortcut = SubResource("Shortcut_s68ik")
 text = "B A C K"
 flat = true
-
-[node name="SoundManager" parent="." instance=ExtResource("9_b5238")]
 
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/Autor" to="." method="_on_autor_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/Back" to="." method="_on_back_pressed"]

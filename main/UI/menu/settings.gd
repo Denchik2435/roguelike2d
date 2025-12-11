@@ -1,17 +1,17 @@
 extends Control
 
 var in_game = false
-@onready var music_sounds = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/HSlider
-@onready var effects_sounds = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/HSlider
-@onready var value_music = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/value
-@onready var value_effects = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/value2
+@onready var music_sounds = $MarginContainer/HBoxContainer/VBoxContainer/Sounds/Music/HSlider
+@onready var effects_sounds = $MarginContainer/HBoxContainer/VBoxContainer/Sounds/Effects/HSlider
+@onready var value_music = $MarginContainer/HBoxContainer/VBoxContainer/Sounds/Music/value
+@onready var value_effects = $MarginContainer/HBoxContainer/VBoxContainer/Sounds/Effects/value2
 # Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	music_sounds.value = Global.k_volume
 	effects_sounds.value = Global.k_volume_effects
 	value_music.text = str(Global.k_volume*100)
 	value_effects.text = str(Global.k_volume_effects*100)
-
 
 
 func _on_h_slider_value_changed(value: float) -> void:

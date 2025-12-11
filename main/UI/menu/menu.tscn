@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d33dftgewpw1f"]
+[gd_scene load_steps=7 format=3 uid="uid://d33dftgewpw1f"]
 
 [ext_resource type="Script" uid="uid://xbmh7t7e7kn6" path="res://main/UI/menu/menu.gd" id="1_37ek2"]
+[ext_resource type="Theme" uid="uid://bxboh3d6i323h" path="res://main/globals/main_theme.tres" id="1_ojl31"]
 [ext_resource type="Texture2D" uid="uid://7i5dpbv6mww3" path="res://main/UI/menu/menu.tres" id="2_hnf3l"]
 [ext_resource type="Texture2D" uid="uid://bspdfof1ikrcx" path="res://main/UI/menu/menu2.tres" id="3_3impa"]
 
@@ -18,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ojl31")
 script = ExtResource("1_37ek2")
 metadata/_edit_lock_ = true
 

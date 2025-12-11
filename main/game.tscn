@@ -18,7 +18,7 @@ point_count = 5
 [sub_resource type="Environment" id="Environment_jc0vi"]
 background_mode = 3
 tonemap_mode = 3
-tonemap_exposure = 0.48
+tonemap_exposure = 0.5
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true

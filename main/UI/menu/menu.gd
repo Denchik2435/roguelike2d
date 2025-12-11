@@ -1,5 +1,8 @@
 extends Control
 
+func _ready() -> void:
+	Global.menu.emit()
+
 
 func _on_start_pressed() -> void:
 	Global.go_to("game")

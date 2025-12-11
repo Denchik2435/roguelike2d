@@ -425,7 +425,7 @@ fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5yfqu"]
-radius = 27.0
+radius = 32.0
 
 [node name="Hero" instance=ExtResource("1_j4os2")]
 modulate = Color(1, 0.6431373, 0.39607844, 1)

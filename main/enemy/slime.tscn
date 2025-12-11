@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://b27d8nacsgqhi" path="res://assets/sounds/enemy/slime/chase.ogg" id="4_iwi5n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_28kc4"]
-radius = 6.0
-height = 18.0
+radius = 8.0
+height = 27.999992
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kxcv7"]
 atlas = ExtResource("2_28kc4")
@@ -265,6 +265,7 @@ sounds = Dictionary[String, AudioStream]({
 })
 
 [node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_28kc4")
 

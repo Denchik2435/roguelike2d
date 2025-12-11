@@ -13,16 +13,18 @@ signal die_enemy
 signal take_soul
 signal change_volume
 signal start_game
+signal menu
 
 
 func _ready() -> void:
 	
 	add_child(sound_manager)
-	sound_manager.play_sound("menu_soundtrack")
+	#sound_manager.play_sound("menu_soundtrack")
 	#sound_manager.play_sound("fire_born")
 	self.connect("player_dead",  Callable(self, "go_to").bind("lose"))
 	self.connect("take_soul", Callable(self, "add_soul"))
 	self.connect("start_game", Callable(self, "stop_menu"))
+	self.connect("menu", Callable(self, "start_menu"))
 
 ##stats of hero
 
@@ -44,6 +46,11 @@ func calc_volume_effects():
 
 func stop_menu():
 	sound_manager.stop_sound()
+	#sound_manager.play_sound("game_soundtrack")
+
+func start_menu():
+	#sound_manager.stop_sound()
+	sound_manager.play_sound("menu_soundtrack")
 ##router
 
 var scens = {

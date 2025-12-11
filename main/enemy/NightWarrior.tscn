@@ -424,7 +424,6 @@ frame_progress = 0.944053
 offset = Vector2(-0.425, -5.68)
 
 [node name="Effects" parent="Face" index="1"]
-visible = true
 z_index = 0
 position = Vector2(0, -3.6231887)
 
@@ -432,7 +431,7 @@ position = Vector2(0, -3.6231887)
 position = Vector2(0, 14.282614)
 
 [node name="CollisionShape2D" parent="AttackBox" index="0"]
-position = Vector2(0, -2.898551)
+position = Vector2(0, -5.9604645e-07)
 
 [node name="ProgressBar" parent="." index="5"]
 offset_top = -21.753635
