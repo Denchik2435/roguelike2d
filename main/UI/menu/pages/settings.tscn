@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk2gesjwx0q7v"]
+[gd_scene load_steps=8 format=3 uid="uid://bk2gesjwx0q7v"]
 
 [ext_resource type="Script" uid="uid://cgmty8k81wbk1" path="res://main/UI/menu/pages/settings.gd" id="1_rq7vc"]
+[ext_resource type="PackedScene" uid="uid://ddl8wy68jkkh3" path="res://assets/textures/background/background_1.tscn" id="2_etef7"]
 [ext_resource type="Theme" uid="uid://bxboh3d6i323h" path="res://main/globals/main_theme.tres" id="2_pcdxm"]
 
 [sub_resource type="Gradient" id="Gradient_0kv31"]
@@ -31,6 +32,7 @@ grow_vertical = 2
 script = ExtResource("1_rq7vc")
 
 [node name="Texture" type="TextureRect" parent="."]
+visible = false
 z_index = -6
 layout_mode = 1
 anchors_preset = 15
@@ -40,6 +42,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_c710n")
+
+[node name="background_1" parent="." instance=ExtResource("2_etef7")]
+modulate = Color(0.43365613, 0.43365613, 0.43365613, 1)
+texture_filter = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
